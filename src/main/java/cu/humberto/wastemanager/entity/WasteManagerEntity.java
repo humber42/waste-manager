@@ -33,7 +33,7 @@ import java.util.Objects;
 @EntityListeners( AuditingEntityListener.class )
 public class WasteManagerEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nombre")

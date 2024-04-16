@@ -27,10 +27,10 @@ import java.util.Objects;
 public class WasteCenterAuthorizationEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "athorization_number")
+    @Column(name = "authorization_number")
     private String authorizationNumber;
 
     @JoinColumn(name = "id_waste_manager",insertable = true,updatable = true)

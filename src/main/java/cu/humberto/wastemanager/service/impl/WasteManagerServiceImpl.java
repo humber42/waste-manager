@@ -50,7 +50,12 @@ public class WasteManagerServiceImpl implements WasteManagerService {
     @Override
     public ResponseEntity findById(long wasteManagerId) throws Exception {
         WasteManagerEntity entity = wasteManagerRepository.findById(wasteManagerId).get();
-        WasteManagerAddressDTO addressDTO = managerAddressClient.getWasteManagerAddresById(entity.getIdAddress());
+        WasteManagerAddressDTO addressDTO =null;
+        try {
+             addressDTO= managerAddressClient.getWasteManagerAddresById(entity.getIdAddress());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         WasteManagerDTO dto = mapper.map(entity, WasteManagerDTO.class);
         dto.setManagerAddress(addressDTO);
         return ResponseEntity.ok(dto);
